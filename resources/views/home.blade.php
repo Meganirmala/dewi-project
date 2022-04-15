@@ -60,7 +60,9 @@
     </section>
     <!-- Main content -->
     <section class="content">
-      @yield('content')
+      <div class="box">
+        <div class="box-header with-border">
+        @yield('content')
       <!-- Small boxes (Stat box) -->
       {{-- <div class="row">
         <div class="col-lg-3 col-xs-6">
@@ -125,7 +127,8 @@
         <!-- ./col -->
       </div> --}}
       <!-- /.row -->
-
+      </div>
+      </div>
     </section>
     <!-- /.content -->
   </div>

@@ -17,7 +17,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
+            <li><a href="{{ route('products.index') }}"><i class="fa fa-circle-o"></i>Products</a></li>
             <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
             <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
           </ul>
@@ -80,10 +80,13 @@
             <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
           </ul>
         </li>
+       @role('Admin')
         <li class="header">USER MANAGEMENT</li>
         <li><a href="{{ route('users.index') }}"><i class="fa fa-circle-o text-red"></i> <span>User Management</span></a></li>
         <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>User Log</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Roles</span></a></li>
+        <li><a href="{{ route('roles.index') }}"><i class="fa fa-circle-o text-aqua"></i> <span>Roles</span></a></li>
+       @endrole
+        
       </ul>
     </section>
     <!-- /.sidebar -->
