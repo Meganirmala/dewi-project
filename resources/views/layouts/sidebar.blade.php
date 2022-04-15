@@ -81,7 +81,7 @@
           </ul>
         </li>
         <li class="header">USER MANAGEMENT</li>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>User Management</span></a></li>
+        <li><a href="{{ route('users.index') }}"><i class="fa fa-circle-o text-red"></i> <span>User Management</span></a></li>
         <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>User Log</span></a></li>
         <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Roles</span></a></li>
       </ul>
