@@ -5,11 +5,11 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Products</h2>
+                <h2>Kategori</h2>
             </div>
             <div class="pull-right">
                 @can('product-create')
-                <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Product</a>
+                <a class="btn btn-success" href="{{ route('kategori.create') }}"> Create New Category</a>
                 @endcan
             </div>
         </div>
@@ -26,20 +26,19 @@
     <table class="table table-bordered">
         <tr>
             <th>No</th>
-            <th>Name</th>
+            <th>Nama Kategori</th>
             <th>Details</th>
             <th width="280px">Action</th>
         </tr>
-	    @foreach ($products as $product)
+	    @foreach ($categories as $category)
 	    <tr>
 	        <td>{{ ++$i }}</td>
-	        <td>{{ $product->name }}</td>
-	        <td>{{ $product->detail }}</td>
+	        <td>{{ $category->nama_kategori }}</td>
+	        <td>{{ $category->deskripsi }}</td>
 	        <td>
-                <form action="{{ route('products.destroy',$product->id) }}" method="POST">
-                    <a class="btn btn-info" href="{{ route('products.show',$product->id) }}">Show</a>
+                <form action="{{ route('kategori.destroy',$category->id) }}" method="POST">
                     @can('product-edit')
-                    <a class="btn btn-primary" href="{{ route('products.edit',$product->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('kategori.edit',$category->id) }}">Edit</a>
                     @endcan
 
 
@@ -55,7 +54,7 @@
     </table>
 
 
-    {!! $products->links() !!}
+    {!! $categories->links() !!}
 
 
 @endsection

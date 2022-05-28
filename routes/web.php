@@ -1,8 +1,15 @@
 <?php
 
+use App\Http\Controllers\Backend\ArticleController;
+use App\Http\Controllers\Backend\ContactController;
+use App\Http\Controllers\Backend\FasilitasController;
+use App\Http\Controllers\Backend\GalleryController;
+use App\Http\Controllers\Backend\KategoriController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\RoleController;
+use App\Models\Gallery;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +34,12 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('users', UserController::class);
     Route::resource('roles', RoleController::class);
     Route::resource('products', ProductController::class);
+    Route::resource('kategori', KategoriController::class);
+    Route::resource('galleries', GalleryController::class);
+    Route::resource('fasilitas', FasilitasController::class);
+    Route::resource('profile', ProfileController::class);
+    Route::resource('contact', ContactController::class);
+    Route::resource('article', ArticleController::class);
 
 });
 Auth::routes();

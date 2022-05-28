@@ -18,8 +18,12 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ route('products.index') }}"><i class="fa fa-circle-o"></i>Products</a></li>
-            <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
+            <li><a href="{{ route('kategori.create') }}"><i class="fa fa-circle-o"></i>Kategori</a></li>
+            <li><a href="{{ route('profile.create') }}"><i class="fa fa-circle-o"></i>Profile Desa</a></li>
+            <li><a href="{{ route('contact.create') }}"><i class="fa fa-circle-o"></i>Contact</a></li>
+            <li><a href="{{ route('fasilitas.create') }}"><i class="fa fa-circle-o"></i>Fasilitas Desa</a></li>
+            <li><a href="{{ route('galleries.create') }}"><i class="fa fa-circle-o"></i>Galeri</a></li>
+            <li><a href="{{ route('article.create') }}"><i class="fa fa-circle-o"></i>Article</a></li>
           </ul>
         </li>
         <li class="treeview">
