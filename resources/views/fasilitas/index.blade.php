@@ -5,11 +5,11 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Products</h2>
+                <h2>Fasilitas</h2>
             </div>
             <div class="pull-right">
                 @can('product-create')
-                <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Product</a>
+                <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Fasilitas</a>
                 @endcan
             </div>
         </div>
@@ -26,20 +26,22 @@
     <table class="table table-bordered">
         <tr>
             <th>No</th>
-            <th>Name</th>
-            <th>Details</th>
+            <th>Deskripsi Fasilitas</th>
+            <th>Foto</th>
             <th width="280px">Action</th>
         </tr>
-	    @foreach ($products as $product)
+	    @foreach ($fasilitas as $obj)
 	    <tr>
 	        <td>{{ ++$i }}</td>
-	        <td>{{ $product->name }}</td>
-	        <td>{{ $product->detail }}</td>
+	        <td>{{ $obj->deskripsi }}</td>
+            <td>
+                <img src="{{ asset('img/'. $obj->foto) }}" alt="" class="product-image">
+            </td>
 	        <td>
-                <form action="{{ route('products.destroy',$product->id) }}" method="POST">
-                    <a class="btn btn-info" href="{{ route('products.show',$product->id) }}">Show</a>
+                <form action="{{ route('fasilitas.destroy',$obj->id) }}" method="POST">
+                    <a class="btn btn-info" href="{{ route('fasilitas.show',$obj->id) }}">Show</a>
                     @can('product-edit')
-                    <a class="btn btn-primary" href="{{ route('products.edit',$product->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('fasilitas.edit',$obj->id) }}">Edit</a>
                     @endcan
 
 
@@ -55,7 +57,7 @@
     </table>
 
 
-    {!! $products->links() !!}
+    {!! $fasilitas->links() !!}
 
 
 @endsection

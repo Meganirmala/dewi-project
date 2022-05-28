@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Fasilitas;
 use Illuminate\Http\Request;
 
 class FasilitasController extends Controller
@@ -15,6 +16,10 @@ class FasilitasController extends Controller
     public function index()
     {
         //
+        $fasilitas = Fasilitas::paginate(10);
+    
+        return view('fasilitas.index', compact('fasilitas'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -25,6 +30,7 @@ class FasilitasController extends Controller
     public function create()
     {
         //
+        return view('fasilitas.create');
     }
 
     /**

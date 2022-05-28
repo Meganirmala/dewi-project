@@ -25,6 +25,9 @@
   <link rel="stylesheet" href="{{asset('assets/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}">
   <!-- Daterange picker -->
   <link rel="stylesheet" href="{{asset('assets/bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
+  <!-- cusctom css -->
+  <link href="{{ asset('assets/dist/css/custom.css') }}" rel="stylesheet">
+
   <!-- bootstrap wysihtml5 - text editor -->
   {{-- <link rel="stylesheet" href="{{asset('assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}"> --}}
 
