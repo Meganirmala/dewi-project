@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Gallery;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class GalleryController extends Controller
@@ -15,6 +17,10 @@ class GalleryController extends Controller
     public function index()
     {
         //
+        $galleries = Gallery::paginate(10);
+    
+        return view('gallery.index', compact('galleries'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -25,6 +31,8 @@ class GalleryController extends Controller
     public function create()
     {
         //
+        $category = Kategori::get();
+        return view('gallery.create', compact('category'));
     }
 
     /**
