@@ -15,6 +15,13 @@ class CreateGalleriesTable extends Migration
     {
         Schema::create('galleries', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('kategori_id');
+            $table->string('judul');
+            $table->text('foto')->nullable();
+            $table->text('deskripsi')->nullable();
+            
+            $table->foreign('kategori_id')->references('id')->on('kategoris')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }

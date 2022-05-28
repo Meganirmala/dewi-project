@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Gallery extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'ketegori_id',
+        'judul',
+        'foto',
+        'deskripsi'
+    ];
+    public function kategori()
+    {
+    	return $this->belongsTo(Kategori::class);
+    }
 }
