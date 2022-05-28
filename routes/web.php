@@ -32,6 +32,9 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('users', UserController::class);
+    Route::get('/showUser/{id}', [UserController::class, 'showUser'])->name('showUser');
+    Route::get('/editUser/{id}', [UserController::class, 'editUser'])->name('editUser');
+    Route::put('/updateUser/{id}', [UserController::class, 'updateUser'])->name('updateUser');
     Route::resource('roles', RoleController::class);
     Route::resource('products', ProductController::class);
     Route::resource('kategori', KategoriController::class);
