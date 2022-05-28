@@ -39,7 +39,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('fasilitas', FasilitasController::class);
     Route::get('/profileDesa', [ProfileController::class, 'profileDesa'])->name('profileDesa');
     Route::post('/profileDesa_store', [ProfileController::class, 'profileDesa_store'])->name('profileDesa_store');
-    Route::resource('contact', ContactController::class);
+    Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
+    Route::post('/contact_store', [ContactController::class, 'contact_store'])->name('contact_store');
     Route::resource('article', ArticleController::class);
 
 });
