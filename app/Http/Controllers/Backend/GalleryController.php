@@ -81,6 +81,8 @@ class GalleryController extends Controller
     public function show($id)
     {
         //
+        $gallery = Gallery::with('kategori')->find($id);
+        return view('gallery.show',compact('gallery'));
     }
 
     /**
