@@ -92,6 +92,9 @@ class GalleryController extends Controller
     public function edit($id)
     {
         //
+        $gallery = Gallery::where('id', $id)->with('kategori')->first();
+        $category = Kategori::all();
+        return view('gallery.edit', compact('gallery','category'));
     }
 
     /**
