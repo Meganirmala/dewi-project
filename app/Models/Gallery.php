@@ -9,7 +9,7 @@ class Gallery extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'ketegori_id',
+        'kategori_id',
         'judul',
         'foto',
         'deskripsi'

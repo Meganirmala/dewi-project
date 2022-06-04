@@ -17,7 +17,7 @@ class CreateGalleriesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('kategori_id');
             $table->string('judul');
-            $table->text('foto')->nullable();
+            $table->text('foto');
             $table->text('deskripsi')->nullable();
             
             $table->foreign('kategori_id')->references('id')->on('kategoris')

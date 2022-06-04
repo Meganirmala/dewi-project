@@ -44,6 +44,32 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         //
+        $messages = [
+            'required' => ':attribute must be filled'
+        ];
+        request()->validate([
+            'judul' => 'required',
+            'kategori_id' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240'
+        ], $messages);
+
+        if ($files = $request->file('image'))
+        {
+          $destinationPath = 'img';
+          $imageName = date('YmdHis') . "1." . $files->getClientOriginalExtension();
+          $files->move($destinationPath, $imageName);
+          $request->request->add(['foto' => $imageName ]);
+        }
+
+        $gallery = Gallery::create([
+            'kategori_id' => $request->kategori_id,
+            'judul' => $request->judul,
+            'foto' =>$request->foto,
+            'deskripsi' => $request->deskripsi,
+        ]);
+
+        return redirect()->route('galleries.index')
+        ->with('success','Foto succefully added.');
     }
 
     /**
@@ -89,5 +115,22 @@ class GalleryController extends Controller
     public function destroy($id)
     {
         //
+        $gallery = Gallery::find($id);
+        if($gallery->foto){
+            $file_path = public_path('img/'.$gallery->foto); 
+         }
+         if ($gallery){
+            if (file_exists($file_path)) {
+                if  (unlink($file_path)){
+                    $gallery->delete();
+                    return redirect()->route('galleries.index')
+                    ->with('success','Foto succefully deleted');
+                }
+                else {
+                    return redirect()->route('galleries.index')
+                    ->with('error','Foto gagal dihapus');
+                } 
+             }
+        }
     }
 }
