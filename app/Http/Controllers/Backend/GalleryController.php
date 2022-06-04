@@ -107,6 +107,38 @@ class GalleryController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $gallery = Gallery::where('id', $id)->with('kategori')->first();
+        $validatedData = $request->validate([
+            'judul' => 'required',
+            'kategori_id' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240'
+        ]);
+        $data = [
+            'kategori_id'=>$request->kategori_id,
+            'judul' => $request->judul,
+            'deskripsi' => $request->deskripsi,
+            ];
+        $path = public_path('img/'. $gallery->foto);
+
+        if ($files = $request->file('image')) 
+            {
+                if($gallery->foto != ''  && $gallery->foto != null)
+                {
+                    $file_old = $path;
+                    unlink ($file_old);
+            }
+            $destinationPath = 'img';
+            $imageName = date('YmdHis') . "." . $files->getClientOriginalExtension();
+            $files->move($destinationPath, $imageName);
+            $save['foto'] = "$imageName";
+            $request->request->add(['foto' => $imageName ]);
+            $data['foto'] = $request->foto;
+        }
+
+        $gallery = Gallery::whereId($id)->update($data);
+
+        return redirect()->route('galleries.index')
+        ->with('success','Foto Successfuly changed'); 
     }
 
     /**
