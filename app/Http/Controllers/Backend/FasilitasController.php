@@ -87,6 +87,8 @@ class FasilitasController extends Controller
     public function edit($id)
     {
         //
+        $fasilitas = Fasilitas::where('id', $id)->first();
+        return view('fasilitas.edit', compact('fasilitas'));
     }
 
     /**
@@ -99,6 +101,35 @@ class FasilitasController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $fasilitas = Fasilitas::where('id', $id)->first();
+        $validatedData = $request->validate([
+            'deskripsi' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240'
+        ]);
+        $data = [
+            'deskripsi' => $request->deskripsi,
+            ];
+        $path = public_path('fasilitas_dewi/'. $fasilitas->foto);
+
+        if ($files = $request->file('image')) 
+            {
+                if($fasilitas->foto != ''  && $fasilitas->foto != null)
+                {
+                    $file_old = $path;
+                    unlink ($file_old);
+            }
+            $destinationPath = 'fasilitas_dewi';
+            $imageName = date('YmdHis') . "." . $files->getClientOriginalExtension();
+            $files->move($destinationPath, $imageName);
+            $save['foto'] = "$imageName";
+            $request->request->add(['foto' => $imageName ]);
+            $data['foto'] = $request->foto;
+        }
+
+        $fasilitas = Fasilitas::whereId($id)->update($data);
+
+        return redirect()->route('fasilitas.index')
+        ->with('success','Fasilitas Successfuly changed'); 
     }
 
     /**
