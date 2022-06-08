@@ -9,80 +9,35 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-        <li class="treeview">
+        <li>
           <a href="#">
-            <i class="fa fa-edit"></i> <span>Forms</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+            <i class="fa fa-file-text"></i> <span>Article</span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="{{ route('products.index') }}"><i class="fa fa-circle-o"></i>Products</a></li>
-            <li><a href="{{ route('kategori.create') }}"><i class="fa fa-circle-o"></i>Kategori</a></li>
-            <li><a href="{{ route('profileDesa') }}"><i class="fa fa-circle-o"></i>Profile Desa</a></li>
-            <li><a href="{{ route('contact') }}"><i class="fa fa-circle-o"></i>Contact</a></li>
-            <li><a href="{{ route('fasilitas.create') }}"><i class="fa fa-circle-o"></i>Fasilitas Desa</a></li>
-            <li><a href="{{ route('galleries.create') }}"><i class="fa fa-circle-o"></i>Galeri</a></li>
-            <li><a href="{{ route('article.create') }}"><i class="fa fa-circle-o"></i>Article</a></li>
-          </ul>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>Tables</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+        <li>
+          <a href="{{ route('galleries.index') }}">
+            <i class="fa fa-camera"></i> <span>Gallery</span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-            <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
-          </ul>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-folder"></i> <span>Examples</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+        <li>
+          <a href="{{ route('fasilitas.index') }}">
+            <i class="fa fa-picture-o"></i> <span>Fasilitas Desa</span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-            <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
-            <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-          </ul>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-share"></i> <span>Multilevel</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+        <li>
+          <a href="{{ route('profileDesa') }}">
+            <i class="fa fa-product-hunt"></i> <span>Profile Desa</span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-            <li class="treeview">
-              <a href="#"><i class="fa fa-circle-o"></i> Level One
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
-                <li class="treeview">
-                  <a href="#"><i class="fa fa-circle-o"></i> Level Two
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-          </ul>
+        </li>
+        <li>
+          <a href="{{ route('contact') }}">
+            <i class="fa fa-address-book"></i> <span>Contact</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ route('kategori.index') }}">
+            <i class="fa fa-cogs"></i> <span>Kategori</span>
+          </a>
         </li>
        @role('Admin')
         <li class="header">USER MANAGEMENT</li>
