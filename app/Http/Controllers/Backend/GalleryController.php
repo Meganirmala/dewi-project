@@ -55,7 +55,7 @@ class GalleryController extends Controller
 
         if ($files = $request->file('image'))
         {
-          $destinationPath = 'img';
+          $destinationPath = 'gallery_dewi';
           $imageName = date('YmdHis') . "1." . $files->getClientOriginalExtension();
           $files->move($destinationPath, $imageName);
           $request->request->add(['foto' => $imageName ]);

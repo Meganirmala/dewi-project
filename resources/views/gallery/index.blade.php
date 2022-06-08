@@ -35,7 +35,7 @@
 	        <td>{{ ++$i }}</td>
 	        <td>{{ $gallery->judul }}</td>
             <td>
-                <img src="{{ asset('img/'. $gallery->foto) }}" alt="" class="product-image">
+                <img src="{{ asset('gallery_dewi/'. $gallery->foto) }}" alt="" class="product-image">
             </td>
 	        <td>
                 <form action="{{ route('galleries.destroy',$gallery->id) }}" method="POST">

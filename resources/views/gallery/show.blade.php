@@ -28,7 +28,7 @@
                 <td>: {{ $gallery->judul }}</td>
             </tr>
             <tr>
-                <td>Katgori Foto</td>
+                <td>Kategori Foto</td>
                 <td>: {{ $gallery->kategori->nama_kategori }}</td>
             </tr>
             <tr>
@@ -41,7 +41,7 @@
             </tr>
             <tr>
                 <td>
-                    <embed class="center" src="{{ asset('img/' . $gallery->foto) }}" style="width:400px;" frameborder="0">
+                    <embed class="center" src="{{ asset('gallery_dewi/' . $gallery->foto) }}" style="width:400px;" frameborder="0">
                 </td>
             </tr>
             
