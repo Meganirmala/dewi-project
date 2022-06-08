@@ -113,7 +113,7 @@ class GalleryController extends Controller
         $validatedData = $request->validate([
             'judul' => 'required',
             'kategori_id' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240'
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240'
         ]);
         $data = [
             'kategori_id'=>$request->kategori_id,

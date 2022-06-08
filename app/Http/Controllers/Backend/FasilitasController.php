@@ -76,6 +76,8 @@ class FasilitasController extends Controller
     public function show($id)
     {
         //
+        $fasilitas = Fasilitas::find($id);
+        return view('fasilitas.show',compact('fasilitas'));
     }
 
     /**
@@ -104,7 +106,7 @@ class FasilitasController extends Controller
         $fasilitas = Fasilitas::where('id', $id)->first();
         $validatedData = $request->validate([
             'deskripsi' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240'
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240'
         ]);
         $data = [
             'deskripsi' => $request->deskripsi,

@@ -34,7 +34,7 @@ class ProfileController extends Controller
             $create_profile_desa = Profile::updateOrcreate([
                 'description' =>$request->description,
             ]);
-            return redirect()->route('index')
+            return redirect()->route('profileDesa')
             ->with('success','Profile Desa succefully added.');
         }
         else{
