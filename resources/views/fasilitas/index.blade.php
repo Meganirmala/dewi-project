@@ -35,7 +35,7 @@
 	        <td>{{ ++$i }}</td>
 	        <td>{{ $obj->deskripsi }}</td>
             <td>
-                <img src="{{ asset('img/'. $obj->foto) }}" alt="" class="product-image">
+                <img src="{{ asset('fasilitas_dewi/'. $obj->foto) }}" alt="" class="product-image">
             </td>
 	        <td>
                 <form action="{{ route('fasilitas.destroy',$obj->id) }}" method="POST">

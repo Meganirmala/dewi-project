@@ -42,6 +42,29 @@ class FasilitasController extends Controller
     public function store(Request $request)
     {
         //
+        $messages = [
+            'required' => ':attribute must be filled'
+        ];
+        request()->validate([
+            'deskripsi' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240'
+        ], $messages);
+
+        if ($files = $request->file('image'))
+        {
+          $destinationPath = 'fasilitas_dewi';
+          $imageName = date('YmdHis') . "1." . $files->getClientOriginalExtension();
+          $files->move($destinationPath, $imageName);
+          $request->request->add(['foto' => $imageName ]);
+        }
+
+        $fasilitas = Fasilitas::create([
+            'deskripsi' => $request->deskripsi,
+            'foto' =>$request->foto,
+        ]);
+
+        return redirect()->route('fasilitas.index')
+        ->with('success','Fasilitas succefully added.');
     }
 
     /**

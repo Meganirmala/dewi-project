@@ -38,7 +38,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
 		            <strong>Foto:</strong>
-		            <input type="file" name="foto" class="form-control">
+		            <input type="file" name="image" class="form-control">
 		        </div>
 		    </div>
 		    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
