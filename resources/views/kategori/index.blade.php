@@ -8,7 +8,7 @@
                 <h2>Kategori</h2>
             </div>
             <div class="pull-right">
-                @can('product-create')
+                @can('kategori-create')
                 <a class="btn btn-success" href="{{ route('kategori.create') }}"> Create New Category</a>
                 @endcan
             </div>
@@ -37,14 +37,14 @@
 	        <td>{{ $category->deskripsi }}</td>
 	        <td>
                 <form action="{{ route('kategori.destroy',$category->id) }}" method="POST">
-                    @can('product-edit')
+                    @can('kategori-edit')
                     <a class="btn btn-primary" href="{{ route('kategori.edit',$category->id) }}">Edit</a>
                     @endcan
 
 
                     @csrf
                     @method('DELETE')
-                    @can('product-delete')
+                    @can('kategori-delete')
                     <button type="submit" class="btn btn-danger">Delete</button>
                     @endcan
                 </form>

@@ -13,6 +13,13 @@ class FasilitasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    function __construct()
+    {
+         $this->middleware('permission:fasilitas-list|fasilitas-create|fasilitas-edit|fasilitas-delete', ['only' => ['index','show']]);
+         $this->middleware('permission:fasilitas-create', ['only' => ['create','store']]);
+         $this->middleware('permission:fasilitas-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:fasilitas-delete', ['only' => ['destroy']]);
+    }
     public function index()
     {
         //

@@ -8,7 +8,7 @@
                 <h2>Gallery</h2>
             </div>
             <div class="pull-right">
-                @can('product-create')
+                @can('gallery-create')
                 <a class="btn btn-success" href="{{ route('galleries.create') }}"> Add New Foto</a>
                 @endcan
             </div>
@@ -40,14 +40,14 @@
 	        <td>
                 <form action="{{ route('galleries.destroy',$gallery->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('galleries.show',$gallery->id) }}">Show</a>
-                    @can('product-edit')
+                    @can('gallery-edit')
                     <a class="btn btn-primary" href="{{ route('galleries.edit',$gallery->id) }}">Edit</a>
                     @endcan
 
 
                     @csrf
                     @method('DELETE')
-                    @can('product-delete')
+                    @can('gallery-delete')
                     <button type="submit" class="btn btn-danger btn-flat show_confirm">Delete</button>
                     @endcan
                 </form>

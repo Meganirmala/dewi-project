@@ -36,7 +36,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/editUser/{id}', [UserController::class, 'editUser'])->name('editUser');
     Route::put('/updateUser/{id}', [UserController::class, 'updateUser'])->name('updateUser');
     Route::resource('roles', RoleController::class);
-    Route::resource('products', ProductController::class);
     Route::resource('kategori', KategoriController::class);
     Route::resource('galleries', GalleryController::class);
     Route::resource('fasilitas', FasilitasController::class);

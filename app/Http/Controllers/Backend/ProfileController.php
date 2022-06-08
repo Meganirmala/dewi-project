@@ -13,6 +13,13 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    function __construct()
+    {
+         $this->middleware('permission:profile-list|profile-create|profile-edit|profile-delete', ['only' => ['index','show']]);
+         $this->middleware('permission:profile-create', ['only' => ['create','store']]);
+         $this->middleware('permission:profile-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:profile-delete', ['only' => ['destroy']]);
+    }
     public function profileDesa()
     {
         //
