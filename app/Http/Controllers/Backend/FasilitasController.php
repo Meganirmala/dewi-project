@@ -141,5 +141,22 @@ class FasilitasController extends Controller
     public function destroy($id)
     {
         //
+        $fasilitas = Fasilitas::find($id);
+        if($fasilitas->foto){
+            $file_path = public_path('fasilitas_dewi/'.$fasilitas->foto); 
+         }
+         if ($fasilitas){
+            if (file_exists($file_path)) {
+                if  (unlink($file_path)){
+                    $fasilitas->delete();
+                    return redirect()->route('fasilitas.index')
+                    ->with('success','Fasilitas succefully deleted');
+                }
+                else {
+                    return redirect()->route('fasilitas.index')
+                    ->with('error','Fasilitas gagal dihapus');
+                } 
+             }
+        }
     }
 }
