@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
@@ -49,6 +50,34 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         //
+        $messages = [
+            'required' => ':attribute must be filled'
+        ];
+        request()->validate([
+            'judul' => 'required',
+            'konten' => 'required',
+            'tanggal_posting' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240'
+        ], $messages);
+
+        if ($files = $request->file('image'))
+        {
+          $destinationPath = 'article_dewi';
+          $imageName = date('YmdHis') . "1." . $files->getClientOriginalExtension();
+          $files->move($destinationPath, $imageName);
+          $request->request->add(['foto' => $imageName ]);
+        }
+
+        $article = Article::create([
+            'user_id' => $request->user()->id,
+            'judul' => $request->judul,
+            'foto' =>$request->foto,
+            'slug' => Str::slug($request->judul),
+            'tanggal_posting' =>$request->tanggal_posting,
+            'konten' => $request->konten
+        ]);
+        return redirect()->route('article.index')
+        ->with('success','Article succefully added.');
     }
 
     /**
@@ -94,5 +123,6 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         //
+        
     }
 }

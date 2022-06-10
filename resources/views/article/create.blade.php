@@ -37,20 +37,14 @@
 		    </div>
 		    <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
-		            <strong>Slug:</strong>
-		            <input type="text" name="slug" class="form-control" placeholder="Slug">
-		        </div>
-		    </div>
-		    <div class="col-xs-12 col-sm-12 col-md-12">
-		        <div class="form-group">
 		            <strong>Konten:</strong>
-		            <textarea class="form-control" style="height:150px" name="konten" placeholder="Konten"></textarea>
+		            <textarea class="form-control" style="height:150px" name="konten" id="my-editor" placeholder="Konten"></textarea>
 		        </div>
 		    </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
 		            <strong>Foto:</strong>
-		            <input type="file" name="foto" class="form-control">
+		            <input type="file" name="image" class="form-control">
 		        </div>
 		    </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -59,19 +53,18 @@
 		            <input type="date" name="tanggal_posting" class="form-control">
 		        </div>
 		    </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-		        <div class="form-group">
-		            <strong>Author:</strong>
-		            <input type="text" name="user_id" class="form-control">
-		        </div>
-		    </div>
 		    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
 		            <button type="submit" class="btn btn-primary">Submit</button>
 		    </div>
 		</div>
-
-
     </form>
 
-
 @endsection
+@push ('after-scripts')
+    <script type="text/javascript" src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
+    {{-- <script type="text/javascript" src="{{ asset('vendor/file-manager/js/file-manager.js') }}"></script> --}}
+
+    <script type="text/javascript">
+        CKEDITOR.replace('my-editor');
+    </script>
+@endpush

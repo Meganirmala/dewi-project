@@ -11,7 +11,7 @@
         </li>
          @can('article-create')
         <li>
-          <a href="#">
+          <a href="{{ route('article.index') }}">
             <i class="fa fa-file-text"></i> <span>Article</span>
           </a>
         </li>
