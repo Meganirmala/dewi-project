@@ -33,7 +33,7 @@
 	    @foreach ($fasilitas as $obj)
 	    <tr>
 	        <td>{{ ++$i }}</td>
-	        <td>{{ $obj->deskripsi }}</td>
+	        <td>{!! $obj->deskripsi !!}</td>
             <td>
                 <img src="{{ asset('fasilitas_dewi/'. $obj->foto) }}" alt="" class="product-image">
             </td>

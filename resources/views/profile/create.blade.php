@@ -31,7 +31,7 @@
 		    <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
 		            <strong>Deskripsi Profil Desa:</strong>
-		            <textarea class="form-control" style="height:150px" name="description">{{ $profile_desa ? $profile_desa->description:'' }}</textarea>
+		            <textarea class="form-control" style="height:150px" id="my-editor" name="description">{{ $profile_desa ? $profile_desa->description:'' }}</textarea>
 		        </div>
 		    </div>
 		    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
@@ -44,3 +44,11 @@
 
 
 @endsection
+@push ('after-scripts')
+    <script type="text/javascript" src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
+    {{-- <script type="text/javascript" src="{{ asset('vendor/file-manager/js/file-manager.js') }}"></script> --}}
+
+    <script type="text/javascript">
+        CKEDITOR.replace('my-editor');
+    </script>
+@endpush

@@ -33,7 +33,7 @@
             </tr>
             <tr>
                 <td>Deskripsi</td>
-                <td>: {{ $gallery->deskripsi }}</td>
+                <td>: {!! $gallery->deskripsi !!}</td>
             </tr>
             <tr>
                 <td>Tanggal Posting Foto</td>

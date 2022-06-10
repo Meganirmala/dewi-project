@@ -32,7 +32,7 @@
 		    <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
 		            <strong>Deskripsi Fasilitas:</strong>
-		            <textarea class="form-control" style="height:150px" name="deskripsi" placeholder="Deskripsi"></textarea>
+		            <textarea class="form-control" style="height:150px" name="deskripsi" id="my-editor" placeholder="Deskripsi"></textarea>
 		        </div>
 		    </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -51,3 +51,11 @@
 
 
 @endsection
+@push ('after-scripts')
+    <script type="text/javascript" src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
+    {{-- <script type="text/javascript" src="{{ asset('vendor/file-manager/js/file-manager.js') }}"></script> --}}
+
+    <script type="text/javascript">
+        CKEDITOR.replace('my-editor');
+    </script>
+@endpush
