@@ -100,6 +100,8 @@ class ArticleController extends Controller
     public function edit($id)
     {
         //
+        $article = Article::where('id', $id)->first();
+        return view('article.edit', compact('article'));
     }
 
     /**
@@ -112,6 +114,41 @@ class ArticleController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $article = Article::where('id', $id)->first();
+        $validatedData = $request->validate([
+            'judul' => 'required',
+            'konten' => 'required',
+            'tanggal_posting' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240'
+        ]);
+        $data = [
+            'user_id' => $request->user()->id,
+            'judul' => $request->judul,
+            'slug' => Str::slug($request->judul),
+            'tanggal_posting' =>$request->tanggal_posting,
+            'konten' => $request->konten
+            ];
+        $path = public_path('fasilitas_dewi/'. $article->foto);
+
+        if ($files = $request->file('image')) 
+            {
+                if($article->foto != ''  && $article->foto != null)
+                {
+                    $file_old = $path;
+                    unlink ($file_old);
+            }
+            $destinationPath = 'article_dewi';
+            $imageName = date('YmdHis') . "." . $files->getClientOriginalExtension();
+            $files->move($destinationPath, $imageName);
+            $save['foto'] = "$imageName";
+            $request->request->add(['foto' => $imageName ]);
+            $data['foto'] = $request->foto;
+        }
+
+        $article = Article::whereId($id)->update($data);
+
+        return redirect()->route('article.index')
+        ->with('success','Article Successfuly changed'); 
     }
 
     /**

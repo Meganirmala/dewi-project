@@ -28,7 +28,7 @@
             <th>No</th>
             <th>Judul</th>
             <th>Slug</th>
-            <th>Tanggal Posting</th>
+            <th>Gambar</th>
             <th width="280px">Action</th>
         </tr>
 	    @foreach ($articles as $article)
@@ -45,7 +45,6 @@
                     @can('article-edit')
                     <a class="btn btn-primary" href="{{ route('article.edit',$article->id) }}">Edit</a>
                     @endcan
-
 
                     @csrf
                     @method('DELETE')
