@@ -49,7 +49,7 @@
                     @csrf
                     @method('DELETE')
                     @can('article-delete')
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger btn-flat show_confirm">Delete</button>
                     @endcan
                 </form>
 	        </td>

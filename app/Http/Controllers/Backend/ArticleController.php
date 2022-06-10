@@ -160,6 +160,23 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         //
+        $article = Article::find($id);
+        if($article->foto){
+            $file_path = public_path('article_dewi/'.$article->foto); 
+         }
+         if ($article){
+            if (file_exists($file_path)) {
+                if  (unlink($file_path)){
+                    $article->delete();
+                    return redirect()->route('article.index')
+                    ->with('success','Article succefully deleted');
+                }
+                else {
+                    return redirect()->route('article.index')
+                    ->with('error','Article gagal dihapus');
+                } 
+             }
+        }
         
     }
 }
