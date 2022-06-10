@@ -127,7 +127,7 @@ class GalleryController extends Controller
             'judul' => $request->judul,
             'deskripsi' => $request->deskripsi,
             ];
-        $path = public_path('img/'. $gallery->foto);
+        $path = public_path('gallery_dewi/'. $gallery->foto);
 
         if ($files = $request->file('image')) 
             {
@@ -136,7 +136,7 @@ class GalleryController extends Controller
                     $file_old = $path;
                     unlink ($file_old);
             }
-            $destinationPath = 'img';
+            $destinationPath = 'gallery_dewi';
             $imageName = date('YmdHis') . "." . $files->getClientOriginalExtension();
             $files->move($destinationPath, $imageName);
             $save['foto'] = "$imageName";
@@ -161,7 +161,7 @@ class GalleryController extends Controller
         //
         $gallery = Gallery::find($id);
         if($gallery->foto){
-            $file_path = public_path('img/'.$gallery->foto); 
+            $file_path = public_path('gallery_dewi/'.$gallery->foto); 
          }
          if ($gallery){
             if (file_exists($file_path)) {

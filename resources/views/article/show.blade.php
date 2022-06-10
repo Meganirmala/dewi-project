@@ -29,7 +29,6 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Foto:</strong>
                 <embed class="center" src="{{ asset('article_dewi/' . $article->foto) }}" style="width:400px;" frameborder="0">
             </div>
         </div>
