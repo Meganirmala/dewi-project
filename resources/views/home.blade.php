@@ -138,7 +138,7 @@
   <!-- /.content-wrapper -->
 
   <!-- Footer -->
-  @include('layouts.footer')
+  {{-- @include('layouts.footer') --}}
   <!-- End of Footer -->
 
   <!-- Add the sidebar's background. This div must be placed
