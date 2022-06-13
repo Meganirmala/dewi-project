@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\RoleController;
+use App\Http\Controllers\Frontend\LandingController;
 use App\Models\Gallery;
 use Illuminate\Support\Facades\Route;
 
@@ -22,12 +23,22 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [LandingController::class, 'landing'])->name('landing');
+Route::get('/about', [LandingController::class, 'about'])->name('about');
+Route::get('/contact', [LandingController::class, 'contact'])->name('contact');
+Route::get('/gallery', [LandingController::class, 'gallery'])->name('gallery');
+Route::get('/articles', [LandingController::class, 'articles'])->name('articles');
+Route::get('/galleryDetail/{id}', [LandingController::class, 'galleryDetail'])->name('galleryDetail');
+Route::get('/articleDetail/{id}', [LandingController::class, 'articleDetail'])->name('articleDetail');
 
-Route::get('/', function () {
+
+Route::get('/signin', function () {
     return view('welcome');
 });
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::group(['middleware' => ['auth']], function() {
