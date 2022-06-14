@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', [LandingController::class, 'landing'])->name('landing');
 Route::get('/about', [LandingController::class, 'about'])->name('about');
-Route::get('/contact', [LandingController::class, 'contact'])->name('contact');
+Route::get('/contactDesa', [LandingController::class, 'contactDesa'])->name('contactDesa');
 Route::get('/gallery', [LandingController::class, 'gallery'])->name('gallery');
 Route::get('/articles', [LandingController::class, 'articles'])->name('articles');
 Route::get('/galleryDetail/{id}', [LandingController::class, 'galleryDetail'])->name('galleryDetail');

@@ -29,17 +29,17 @@
             <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
               <ul class="navbar-nav">
                 <li class="nav-item dropdown dropdown-mega">
-                  <a class="nav-link" href="demo15.html" data-bs-toggle="">Home</a>
+                  <a class="nav-link" href="{{ route('landing') }}" data-bs-toggle="">Home</a>
                   <!--/.dropdown-menu -->
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link" href="blog-post.html" data-bs-toggle="">About</a>
+                  <a class="nav-link" href="{{ route('about') }}" data-bs-toggle="">About</a>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link" href="blog2.html" data-bs-toggle="">Article</a>
+                  <a class="nav-link" href="{{ route('articles') }}" data-bs-toggle="">Article</a>
                 </li>
                 <li class="nav-item dropdown dropdown-mega">
-                  <a class="nav-link" href="contact.html" data-bs-toggle="">Contact</a>
+                  <a class="nav-link" href="{{ route('contactDesa') }}" data-bs-toggle="">Contact</a>
                   <!--/.dropdown-menu -->
                 </li>
               </ul>
@@ -145,7 +145,7 @@
                     <!--/.card-body -->
                     <div class="card-footer">
                       <ul class="post-meta d-flex mb-0">
-                        <li class="post-date"><i class="uil uil-calendar-alt"></i><span>5 July 2021</span></li>
+                        <li class="post-date"><i class="uil uil-calendar-alt"></i><span>{{ \Carbon\Carbon::parse($data->tanggal_posting)->format('d/m/Y') }}</span></li>
                       </ul>
                       <!-- /.post-meta -->
                     </div>

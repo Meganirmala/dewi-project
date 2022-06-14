@@ -8,9 +8,9 @@
   <meta name="keywords" content="">
   <meta name="author" content="elemis">
   <title>Desa Wisata Bedalewun</title>
-  <link rel="shortcut icon" href="./assets/img/favicon.png">
-  <link rel="stylesheet" href="./assets/css/plugins.css">
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="shortcut icon" href="{{ asset('frontend/assets/img/favicon.png') }}">
+  <link rel="stylesheet" href="{{ asset('frontend/assets/css/plugins.css') }}">
+  <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
 </head>
 
 <body>
@@ -19,27 +19,27 @@
       <nav class="navbar navbar-expand-lg center-nav transparent position-absolute navbar-bg-primary">
         <div class="container flex-lg-row flex-nowrap align-items-center">
           <div class="navbar-brand w-100">
-            <p href="demo15.html">Desa Bedalewun</p>
+            <p href="{{ route('landing') }}">Desa Bedalewun</p>
           </div>
           <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
             <div class="offcanvas-header d-lg-none d-xl-none">
-              <a href="./index.html"><img src="./assets/img/logo-light.png" srcset="./assets/img/logo-light@2x.png 2x" alt="" /></a>
+              <a href="./index.html"><img src="{{ asset('frontend/assets/img/logo-light.png') }}" srcset="{{ asset('frontend/assets/img/logo-light@2x.png 2x') }}" alt="" /></a>
               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
               <ul class="navbar-nav">
                 <li class="nav-item dropdown dropdown-mega">
-                  <a class="nav-link" href="demo15.html" data-bs-toggle="">Home</a>
+                  <a class="nav-link" href="{{ route('landing') }}" data-bs-toggle="">Home</a>
                   <!--/.dropdown-menu -->
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link" href="blog-post.html" data-bs-toggle="">About</a>
+                  <a class="nav-link" href="{{ route('about') }}" data-bs-toggle="">About</a>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link" href="blog2.html" data-bs-toggle="">Article</a>
+                  <a class="nav-link" href="{{ route('articles') }}" data-bs-toggle="">Article</a>
                 </li>
                 <li class="nav-item dropdown dropdown-mega">
-                  <a class="nav-link" href="contact.html" data-bs-toggle="">Contact</a>
+                  <a class="nav-link" href="{{ route('contactDesa') }}" data-bs-toggle="">Contact</a>
                   <!--/.dropdown-menu -->
                 </li>
               </ul>
@@ -80,7 +80,7 @@
           <div class="col-lg-10 mx-auto">
             <div class="blog single mt-n17">
               <div class="card">
-                <figure class="card-img-top"><img src="./assets/img/photos/bedalewun.jpg" alt="" /></figure>
+                <figure class="card-img-top"><img src="{{ asset('frontend/assets/img/photos/bedalewun.jpg') }}" alt=""/></figure>
                 <div class="card-body">
                   <div class="classic-view">
                     <article class="post">
@@ -145,7 +145,6 @@
       <div class="row gy-6 gy-lg-0">
         <div class="col-lg-4">
           <div class="widget">
-            <p class="mb-4">© 2021 Sandbox. All rights reserved.</p>
             <nav class="nav social social-white">
               <a href="#"><i class="uil uil-twitter"></i></a>
               <a href="#"><i class="uil uil-facebook-f"></i></a>
@@ -176,8 +175,8 @@
       <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
     </svg>
   </div>
-  <script src="./assets/js/plugins.js"></script>
-  <script src="./assets/js/theme.js"></script>
+  <script src="{{ asset('frontend./assets/js/plugins.js') }}"></script>
+  <script src="{{ asset('frontend./assets/js/theme.js') }}"></script>
 </body>
 
 </html>

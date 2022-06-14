@@ -21,7 +21,7 @@ class LandingController extends Controller
         return view('landingpage.home', compact('articles','about','contact'));
 
     }
-    public function contact()
+    public function contactDesa()
     {
         //
         $contact = Contact::get();

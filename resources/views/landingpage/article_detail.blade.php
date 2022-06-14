@@ -39,7 +39,7 @@
                   <a class="nav-link" href="{{ route('articles') }}" data-bs-toggle="">Article</a>
                 </li>
                 <li class="nav-item dropdown dropdown-mega">
-                  <a class="nav-link" href="{{ route('contact') }}" data-bs-toggle="">Contact</a>
+                  <a class="nav-link" href="{{ route('contactDesa') }}" data-bs-toggle="">Contact</a>
                   <!--/.dropdown-menu -->
                 </li>
               </ul>
